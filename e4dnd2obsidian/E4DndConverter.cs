@@ -6,33 +6,32 @@ using System.Text;
 
 namespace e4dnd2obsidian
 {
-    public class e4CharakterConverter
+    public class e4DndCharakter
     {
-        private XElement _e4charakter;
+        private XElement _e4charakterData;
 
-        public e4CharakterConverter(XElement e4charakter)
+        public e4DndCharakter(XElement characterData)
         {
-            this._e4charakter = e4charakter;
+            this._e4charakterData = characterData;
         }
 
         public character getCharakterData()
         {
-            character chr = new character();
-            chr.name = _e4charakter.Element("CharacterSheet").Element("Details").Element("name").Value;
-            chr.dynamic_sheet = createDynamicSheet();
-            return chr;
-        }
-        
-        private dynamicSheet createDynamicSheet()
-        {
             dynamicSheet dynSheet = new dynamicSheet();
-
-            var Details = _e4charakter.Element("CharacterSheet").Element("Details").Elements();
-            var RulesElements = _e4charakter.Element("CharacterSheet").Element("RulesElementTally").Elements("RulesElement");
+            character chr = new character();
+            chr.name = _e4charakterData.Element("CharacterSheet").Element("Details").Element("name").Value;
+            
+            var Details = _e4charakterData.Element("CharacterSheet").Element("Details").Elements();
+            var RulesElements = _e4charakterData.Element("CharacterSheet").Element("RulesElementTally").Elements("RulesElement");
 
             dynSheet.race = RulesElements.First(rl => rl.Attribute("type").Value == "Race").Attribute("name").Value;
             dynSheet.e4class = RulesElements.First(rl => rl.Attribute("type").Value == "Class").Attribute("name").Value;
             dynSheet.level = Details.First(elem => elem.Name == "Level").Value;
+            dynSheet.xp = Details.First(elem => elem.Name == "Experience").Value;
+            dynSheet.speed = getStatValue("Speed");
+            dynSheet.passive_perception = getStatValue("Passive Perception");
+            dynSheet.passive_insight = getStatValue("Passive Insight");
+            dynSheet.action_points = getStatValue("_BaseActionPoints");
 
             // Ability Scores
             dynSheet.strength = getStatValue("Strength");
@@ -55,13 +54,32 @@ namespace e4dnd2obsidian
             dynSheet.reflex = getStatValue("Reflex");
             dynSheet.will = getStatValue("Will");
 
-            return dynSheet;
+            // Skills
+            dynSheet.acrobatics = getStatValue("Acrobatics");
+            dynSheet.arcana = getStatValue("Arcana");
+            dynSheet.athletics = getStatValue("Athletics");
+            dynSheet.bluff = getStatValue("Bluff");
+            dynSheet.diplomacy = getStatValue("Diplomacy");
+            dynSheet.dungeoneering = getStatValue("Dungeoneering");
+            dynSheet.endurance = getStatValue("Endurance");
+            dynSheet.heal = getStatValue("Heal");
+            dynSheet.history = getStatValue("History");
+            dynSheet.insight = getStatValue("Insight");
+            dynSheet.intimidate = getStatValue("Intimidate");
+            dynSheet.nature = getStatValue("Nature");
+            dynSheet.perception = getStatValue("Perception");
+            dynSheet.religion = getStatValue("Religion");
+            dynSheet.stealth = getStatValue("Stealth");
+            dynSheet.streetwise = getStatValue("Streetwise");
+            dynSheet.thievery = getStatValue("Thievery");
+
+            return chr;
         }
 
         private string getStatValue(string statAlias)
         {
             string statValue = "";
-            var elem = from stat in _e4charakter.Element("CharacterSheet").Element("StatBlock").Elements("Stat")
+            var elem = from stat in _e4charakterData.Element("CharacterSheet").Element("StatBlock").Elements("Stat")
                        where stat.Elements("alias").FirstOrDefault(al => al.Attribute("name").Value == statAlias) != null
                        select stat.Attribute("value").Value;
             statValue = elem.First();
