@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="e4dnd2obsidian.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="REQUEST_TOKEN_URL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.obsidianportal.com/oauth/request_token</Value>
+    </Setting>
+    <Setting Name="ACCESS_TOKEN_URL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.obsidianportal.com/oauth/access_token</Value>
+    </Setting>
+    <Setting Name="AUTHORIZE_URL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.obsidianportal.com/oauth/authorize</Value>
+    </Setting>
+    <Setting Name="URL_GET_USERINFO" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://api.obsidianportal.com/v1/users/me.json</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
