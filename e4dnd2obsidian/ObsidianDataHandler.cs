@@ -7,9 +7,9 @@ using System.Web.Script.Serialization;
 using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using e4dnd2obsidianGUI;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using OAuth;
 
 namespace e4dnd2obsidian
 {
@@ -19,7 +19,7 @@ namespace e4dnd2obsidian
     /// </summary>
     public class ObsidianDataHandler
     {
-        ObsidianAuth auth;
+        ObsidianOAuth auth;
         JavaScriptSerializer serializer = new JavaScriptSerializer();
         
         string URL_GET_USERINFO = "http://api.obsidianportal.com/v1/users/me.json";
@@ -27,14 +27,14 @@ namespace e4dnd2obsidian
         string URL_CREATE_CHARACTER = "http://api.obsidianportal.com/v1/campaigns/{0}/characters.json";
         string URL_UPDATE_CHARACTER = "http://api.obsidianportal.com/v1/campaigns/{0}/characters/{1}.json";
 
-        public ObsidianDataHandler(ObsidianAuth _auth)
+        public ObsidianDataHandler(ObsidianOAuth _auth)
         {
             this.auth = _auth;
         }
 
         public List<campaign> getCampaignsForUser()
         {
-            string str_userinfo = auth.ExecuteOAuth(ObsidianAuth.HttpMethod.GET, URL_GET_USERINFO, "");
+            string str_userinfo = auth.ExecuteOAuth(ObsidianOAuth.HttpMethod.GET, URL_GET_USERINFO, "");
             user userdata = serializer.Deserialize<user>(str_userinfo);
             return userdata.campaigns;
         }
@@ -43,7 +43,7 @@ namespace e4dnd2obsidian
         {
             List<character> character_list = new List<character>();
             string url = String.Format(URL_GET_CHARACTERS_FOR_CAMPAIGN, cmp.id);
-            string str_characters = auth.ExecuteOAuth(ObsidianAuth.HttpMethod.GET, url, "");
+            string str_characters = auth.ExecuteOAuth(ObsidianOAuth.HttpMethod.GET, url, "");
             
             Object o = serializer.Deserialize<Object>(str_characters);
             System.Object[] olist = (System.Object[])o;
@@ -81,7 +81,7 @@ namespace e4dnd2obsidian
 
             
 
-            auth.ExecuteOAuth(ObsidianAuth.HttpMethod.POST, url, str_character);
+            auth.ExecuteOAuth(ObsidianOAuth.HttpMethod.POST, url, str_character);
         }
         
         public void updateCharakter(character characterData)
@@ -94,7 +94,7 @@ namespace e4dnd2obsidian
             str_character = @"{""character"":" + str_character + "}";
 
             url = "http://api.obsidianportal.com/v1/campaigns/80c7c818f24411dfba8140403656340d/characters/ef04f3086d2511e0b36340403656340d.json";
-            auth.ExecuteOAuth(ObsidianAuth.HttpMethod.PUT, url, str_character);
+            auth.ExecuteOAuth(ObsidianOAuth.HttpMethod.PUT, url, str_character);
 
         }
 
@@ -107,7 +107,7 @@ namespace e4dnd2obsidian
 
             // http://api.obsidianportal.com/v1/campaigns/80c7c818f24411dfba8140403656340d/characters/ef04f3086d2511e0b36340403656340d.json
             string u = "http://api.obsidianportal.com/v1/campaigns/80c7c818f24411dfba8140403656340d/characters/ef04f3086d2511e0b36340403656340d.json";
-            auth.ExecuteOAuth(ObsidianAuth.HttpMethod.PUT, u, json);
+            auth.ExecuteOAuth(ObsidianOAuth.HttpMethod.PUT, u, json);
 
         }
 

@@ -38,8 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\..\libs\OAuthNet-Release-0.7.1.0\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    <Reference Include="OAuth, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OAuth\bin\Release\OAuth.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,12 +69,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="README" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OAuth\OAuth.csproj">
-      <Project>{843D1356-47A3-49D3-906D-03FB0E5C2743}</Project>
-      <Name>OAuth</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -73,6 +73,7 @@ namespace e4dnd2obsidian
             dynSheet.streetwise = getStatValue("Streetwise");
             dynSheet.thievery = getStatValue("Thievery");
 
+            chr.dynamic_sheet = dynSheet;
             return chr;
         }
 

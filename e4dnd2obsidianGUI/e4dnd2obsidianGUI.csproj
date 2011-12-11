@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OAuth, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OAuth\bin\Release\OAuth.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -93,10 +97,6 @@
     <ProjectReference Include="..\e4dnd2obsidian\e4dnd2obsidian.csproj">
       <Project>{3EC3D6AB-282E-4563-881D-2BA223D72D5D}</Project>
       <Name>e4dnd2obsidian</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OAuth\OAuth.csproj">
-      <Project>{843D1356-47A3-49D3-906D-03FB0E5C2743}</Project>
-      <Name>OAuth</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

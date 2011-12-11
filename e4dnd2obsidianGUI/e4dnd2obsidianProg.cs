@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using e4dnd2obsidianGUI;
 using e4dnd2obsidian;
-
+using OAuth;
 
 namespace e4dnd2obsidianGUI
 {
@@ -38,7 +38,7 @@ namespace e4dnd2obsidianGUI
         public void doLogin()
         {
             // OAuth Objekt erzeugen
-            ObsidianAuth oauth = new ObsidianAuth();
+            ObsidianOAuth oauth = new ObsidianOAuth();
             oauth.ConsumerKey = CONSUMER_KEY;
             oauth.ConsumerSecret = CONSUMER_SECRET;
 
