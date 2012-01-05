@@ -42,6 +42,9 @@ namespace e4dnd2obsidian
         public List<character> getCharactersForCampaign(campaign cmp)
         {
             List<character> character_list = new List<character>();
+            if (String.IsNullOrEmpty(cmp.id))
+                return character_list;
+
             string url = String.Format(URL_GET_CHARACTERS_FOR_CAMPAIGN, cmp.id);
             string str_characters = auth.ExecuteOAuth(ObsidianOAuth.HttpMethod.GET, url, "");
             

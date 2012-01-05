@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppCode\ContextObsidian.cs" />
+    <Compile Include="AppCode\IStateObsidian.cs" />
+    <Compile Include="AppCode\StateObsidian.cs" />
     <Compile Include="ObsidianDataHandler.cs" />
     <Compile Include="E4DndConverter.cs" />
     <Compile Include="ObsidianTypes.cs" />
