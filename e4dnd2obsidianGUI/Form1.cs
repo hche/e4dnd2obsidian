@@ -78,10 +78,10 @@ namespace e4dnd2obsidianGUI
                 {
                     string flname = openFileDialog1.FileName;
                     
-                    XElement chrData = XElement.Load(myStream);
-                    myStream.Close();
+                    //XElement chrData = XElement.Load(myStream);
+                    //myStream.Close();
 
-                    prg.setFile(flname, chrData);
+                    //prg.setFile(flname, chrData);
                 }
             }
         }

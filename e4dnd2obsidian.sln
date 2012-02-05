@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth", "OAuth\OAuth.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e4dnd2obsidianWEB", "e4dnd2obsidianWEB\e4dnd2obsidianWEB.csproj", "{13B313FF-B6F9-4034-A457-1E0D2C3A67E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGuiLight", "WebGuiLight\WebGuiLight.csproj", "{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,16 @@ Global
 		{13B313FF-B6F9-4034-A457-1E0D2C3A67E6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{13B313FF-B6F9-4034-A457-1E0D2C3A67E6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{13B313FF-B6F9-4034-A457-1E0D2C3A67E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{28C43053-6B10-4B6F-9BD2-985F9FC9AD22}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
